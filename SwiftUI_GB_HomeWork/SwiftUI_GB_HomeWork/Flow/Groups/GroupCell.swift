@@ -9,20 +9,22 @@ import SwiftUI
 
 struct GroupCell: View {
     
-    @State var groupName: String = "Название группы"
-    @State var groupIconName: String = "group_avatar1"
+//    @State var groupName: String = "Название группы"
+//    @State var groupIconName: String = "group_avatar1"
+    
+    let group: Group
     
     var body: some View {
         HStack(spacing: 5){
             
-            Image(groupIconName)
+            Image(group.iconName)
                 .resizable()
                 .transformAvatarIcon()
                 .padding()
                 
             
             
-            Text(groupName)
+            Text(group.name)
                 .foregroundColor(.indigo)
                 .bold()
                 .font(.title3)
@@ -39,32 +41,10 @@ struct GroupCell: View {
 
 struct GroupCell_Previews: PreviewProvider {
     static var previews: some View {
-        GroupCell()
+        GroupCell(group: Group(name: "Name group", iconName: "group_avatar1"))
     }
 }
 
-struct AvatarIconViewModifier: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .cornerRadius(35)
-            .scaledToFit()
-            .shadow(color: .black, radius: 10)
-    }
-    
-    
-}
-
-struct CellFrameVievModifier: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .overlay(RoundedRectangle(cornerRadius: 10)
-                        .stroke())
-            .frame(height: 150, alignment: .leading)
-            .cornerRadius(10)
-            
-            
-    }
-}
 
 extension View {
     func transformAvatarIcon() -> some View {
@@ -72,6 +52,6 @@ extension View {
     }
     
     func transoformCellFrame() -> some View {
-        self.modifier(CellFrameVievModifier())
+        self.modifier(CellFrameViewModifier())
     }
 }
