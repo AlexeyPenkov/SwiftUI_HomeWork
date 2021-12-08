@@ -11,7 +11,7 @@ import SwiftUI
 struct SwiftUI_GB_HomeWorkApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            GroupCell()
         }
     }
 }
