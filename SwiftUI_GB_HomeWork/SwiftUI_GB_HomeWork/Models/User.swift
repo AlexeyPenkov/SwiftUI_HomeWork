@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct User: Identifiable {
     let id: UUID = UUID()
@@ -15,7 +16,7 @@ struct User: Identifiable {
 
     let age: String
     let avatarName: String
-    
+//    let photoArray: [String]?
     var expandet = true
 }
 

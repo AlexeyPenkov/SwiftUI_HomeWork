@@ -20,7 +20,7 @@ struct GroupsListView: View {
 //                    GroupCell(group: item)
 //                }
             }
-            //.navigationTitle("Groups")
+            .navigationTitle(Text("Groups"))
                 
             
         }

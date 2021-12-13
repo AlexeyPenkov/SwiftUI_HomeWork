@@ -6,10 +6,17 @@
 //
 
 import SwiftUI
+import ASCollectionView
 
 struct UserCollection: View {
     let user: User
+   
+    
     var body: some View {
+        
+//        ASCollectionView(data: user.photoArray , contentBuilder: { url, context in
+//            Image(url)
+//        })
         Text("The photo gallery of the \(user.secondName) will be located here")
     }
 }

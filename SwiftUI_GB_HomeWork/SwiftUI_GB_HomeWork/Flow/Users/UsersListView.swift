@@ -46,7 +46,7 @@ struct UsersListView: View {
                         }
                     }
                 }.listStyle(GroupedListStyle())
-                    //.navigationTitle("Friends")
+                    .navigationTitle(Text("Friends"))
             }
                 
            
