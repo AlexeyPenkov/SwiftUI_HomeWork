@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  LoginView.swift
 //  SwiftUI_GB_HomeWork
 //
 //  Created by Алексей Пеньков on 26.11.2021.
@@ -8,10 +8,14 @@
 import SwiftUI
 import Combine
 
-struct ContentView: View {
-    @State private var login: String = ""
-    @State private var password: String = ""
+struct LoginView: View {
+    
+    @State private var login: String = "unique login"
+    @State private var password: String = "uniquePass"
     @State private var shouldShowLogo: Bool = true
+    
+    @Binding var showUsersListView: Bool
+    @State private var showInccorectAlert: Bool = false
     
     private let keyboardIsShowPublisher = Publishers.Merge(
         NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)
@@ -81,14 +85,27 @@ struct ContentView: View {
     
             
         }
+        .onReceive(keyboardIsShowPublisher) { value in
+            withAnimation {
+                self.shouldShowLogo = !value
+            }
+            
+        }
         .onTapGesture {
             self.endEditing()
         }
-        
+        .alert(isPresented: $showInccorectAlert) {
+            Alert(title: Text("Attention warning"), message: Text("Incorrect password or login, try again!"), dismissButton: .cancel())
+        }
+        .navigationBarHidden(true)
     }
     
     private func onLoginPressed() {
-        
+        if login.lowercased() == "unique login" && password == "uniquePass" {
+            self.showUsersListView = true
+        } else {
+            self.showInccorectAlert = true
+        }
     }
     
     private func endEditing() {
@@ -96,14 +113,9 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        LoginView(showUsersListView: .constant(false))
     }
 }
 
-extension UIApplication {
-    func endEditing() {
-        self.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
-}

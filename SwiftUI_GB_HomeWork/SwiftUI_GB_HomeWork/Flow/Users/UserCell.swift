@@ -9,22 +9,24 @@ import SwiftUI
 
 struct UserCell: View {
     
-    @State var userFirstName: String = "Иванов"
-    @State var userSecondName: String = "Иван"
-    @State var userPatronymName: String = "Иванович"
-    
-    @State var userAge: String = "30"
-    @State var userAvatarName: String = "avatar1"
+//    @State var userFirstName: String = "Иванов"
+//    @State var userSecondName: String = "Иван"
+//    @State var userPatronymName: String = "Иванович"
+//    
+//    @State var userAge: String = "30"
+//    @State var userAvatarName: String = "avatar1"
    
+    let user: User
+    
     var body: some View {
         HStack{
             UserIconImage {
-                Image(userAvatarName)
+                Image(user.avatarName)
             }
            
             VStack {
-                Text(buildUserName())
-                Text("Возраст: \(userAge)")
+                Text(buildUserName(user))
+                Text("Возраст: \(user.age)")
             }
             
         }
@@ -33,17 +35,17 @@ struct UserCell: View {
         
     }
     
-    @UserNameBuilder func buildUserName() -> String {
-        userFirstName
-        userSecondName
-        userPatronymName
+    @UserNameBuilder func buildUserName(_ user: User) -> String {
+        user.firstName
+        user.secondName
+        user.patronymName
         
     }
 }
 
 struct UserCell_Previews: PreviewProvider {
     static var previews: some View {
-        UserCell()
+        UserCell(user: User(firstName: "Ivanov", secondName: "Ivan", patronymName: "Ivanovich", age: "30", avatarName: "avatar1"))
     }
 }
 
