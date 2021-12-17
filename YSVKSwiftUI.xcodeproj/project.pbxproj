@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC9CAF84276C7DE000C3A60D /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9CAF83276C7DE000C3A60D /* LikeButton.swift */; };
 		CA693962272C517E003A8293 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA693961272C517E003A8293 /* ContainerView.swift */; };
 		CA693964272C5A7D003A8293 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA693963272C5A7D003A8293 /* MainTabView.swift */; };
 		CA693966272C5E68003A8293 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA693965272C5E68003A8293 /* FeedView.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC9CAF83276C7DE000C3A60D /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 		CA693961272C517E003A8293 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		CA693963272C5A7D003A8293 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		CA693965272C5E68003A8293 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				CA693970272C626E003A8293 /* FriendRowView.swift */,
 				CA693968272C5EF5003A8293 /* FriendsView.swift */,
 				CA834E282736482800D8F12C /* FriendPageView.swift */,
+				BC9CAF83276C7DE000C3A60D /* LikeButton.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				CA834E2327362D3500D8F12C /* GroupPageView.swift in Sources */,
 				CACF8CD227358D17003170C7 /* Group.swift in Sources */,
 				CA693969272C5EF5003A8293 /* FriendsView.swift in Sources */,
+				BC9CAF84276C7DE000C3A60D /* LikeButton.swift in Sources */,
 				CA693966272C5E68003A8293 /* FeedView.swift in Sources */,
 				CACF8CCB27358386003170C7 /* Session.swift in Sources */,
 				CA834E252736415100D8F12C /* FriendsAPI.swift in Sources */,
