@@ -9,12 +9,24 @@ import SwiftUI
 import Kingfisher
 
 struct FriendRowView: View {
+    
+    @State var isTapped: Bool = false
+    
     var friend: FriendItem
     
     var body: some View {
+      
         HStack {
             AvatarImage {
                 KFImage(URL(string: friend.photo100!)!)
+            }
+            .scaleEffect(!isTapped ? 1 : 1.25)
+            .animation(.spring(response: 1, dampingFraction: 0.45, blendDuration: 0), value: isTapped)
+            .onTapGesture {
+                withAnimation {
+                    isTapped.toggle()
+                    
+                }
             }
             
             VStack(alignment: .leading) {
@@ -31,6 +43,8 @@ struct FriendRowView: View {
                 }
                 
             }.padding(.leading, 10)
-        }.padding(.top, 20).padding(.bottom, 20)
+        }
+        .padding(.top, 20).padding(.bottom, 20)
+        
     }
 }
